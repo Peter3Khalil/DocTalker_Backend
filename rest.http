@@ -1,0 +1,21 @@
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTg1MDU4OGIwMTUzMTI5OGEwODUzZTAiLCJpYXQiOjE3MDMyMTY1MjAsImV4cCI6MTcwMzM4OTMyMH0.Z8V5icz2q_1VjrpXdrS2MRpFhtVaH_Vi5PlGRX4CQWg
+POST http://localhost:5000/user/signup
+Content-Type: application/json
+
+{
+    "email": "testssa55d5d@gmail.com",
+    "password": "tesssst",
+    "firstName": "test",
+    "lastName": "Jsjsjjks"
+}
+
+###
+POST http://localhost:5000/query/query-process
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "query": "what the name",
+    "id":"65850683b01531298a0853ea"
+}

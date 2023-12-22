@@ -6,6 +6,6 @@ const { auth } = require('../middlewares/auth');
 
 const router = express.Router();
 router.post("/upload",auth , upload.single("file"), uploadController.handler);
-router.post("/process", processController.handler);
+router.post("/process", auth,processController.handler);
 
 module.exports = router;

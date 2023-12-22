@@ -68,7 +68,7 @@ exports.handler = async (req, res) => {
             FileName: file.originalname,
             FileUrl: dataLocation, // aws file url
         });
-
+        console.log(myFile);
         await myFile.save()
         .then(() => {
             console.log("file info successfully saved in mongo db")
