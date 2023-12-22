@@ -7,7 +7,7 @@ router.post("/signup", createUser);
 router.post("/login", login);
 
 // Routes that require authentication
-router.delete("/:id", auth, deleteUser);
+router.delete("/", auth, deleteUser);
 router.put("/:id", auth, updateUser);
 
 // TODO GOOGLE AUTH

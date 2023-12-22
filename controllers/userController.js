@@ -55,23 +55,14 @@ exports.login = async (req, res) => {
 
 //delete user 
 exports.deleteUser = async (req, res) => {
-    try {
-   
-    const {id} = req.params
-    if(id!==req.user.id){
-        return res.status(400).json({message:"unauthorized"});
-    }
-    const user = await User.findByIdAndDelete({_id:id})
-    if(!user){
-        return res.status(400).json({message:"User not found"})
-    }
-        await User.deleteOne({_id:id})
-        res.send({message:"User deleted successfully"});
-      
-      
-    } catch (error) {
-        return res.status(500).json({error:error.message})
-    }
+   try {
+    const {_id:id} = req.user
+
+    await User.findByIdAndDelete(id)
+    return res.status(200).json({message:"User deleted successfully"})
+   } catch (error) {
+    return res.status(500).json({error:error.message})
+   }
 }
 
 
