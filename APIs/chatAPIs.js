@@ -73,9 +73,9 @@ exports.updateChat = async (req, res) => {
   try {
     const { id } = req.params
     const { chatName } = req.body
-    const updated = await chatModel.findByIdAndUpdate(
+   await chatModel.findByIdAndUpdate(
       { _id: id },
-      { $set: { chatName: chatName } },
+      { $set: { chatName } },
       { new: true }
     )
 

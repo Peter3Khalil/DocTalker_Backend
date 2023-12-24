@@ -5,7 +5,7 @@ const router = express.Router();
 
 
 // process the query coming from the user
-router.post('/query-process', queryController.handler);
+router.post('/query-process', auth,queryController.handler);
 
 
 module.exports = router;

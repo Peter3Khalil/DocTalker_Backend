@@ -4,11 +4,18 @@ const passport = require("passport")
 const { connectDB } = require("../config/database")
 const morgan = require("morgan")
 require("dotenv").config()
-const { auth } = require("../middlewares/auth")
-
+const cors = require("cors")
 const app = express()
 
 const PORT = process.env.PORT || 3000
+
+app.use(cors(
+  {
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: false,
+    }
+))
 
 // Middleware for JSON and URL-encoded data
 app.use(express.json())
