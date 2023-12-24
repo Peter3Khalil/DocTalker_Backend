@@ -11,7 +11,7 @@ router.delete("/", auth, deleteUser);
 router.put("/", auth, updateUser);
 
 // TODO GOOGLE AUTH
-// router.get('/google', authController.googleAuth);
+// router.get('/google', userController.googleAuth);
 // router.get('/google/redirect', authController.googleRedirect);
 
 // TODO OTP AUTH

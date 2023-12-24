@@ -1,6 +1,7 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const User = require('../models/user');
 
+
 // Create a payment intent
 exports.createPaymentIntent = async (req, res) => {
   try {
@@ -24,6 +25,7 @@ exports.createPaymentIntent = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
 
 // Process a payment
 exports.processPayment = async (req, res) => {
