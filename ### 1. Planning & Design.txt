@@ -23,7 +23,7 @@
    - Ensure state management using Redux, especially for larger states like chat history.
 
 3. *Integration with Backend*:
-   - Use Axios  because of its flexibility over the Fetch API. Handle errors gracefully.
+ 
 
 ### 3. *Backend Development*
    1. *Setup*: 

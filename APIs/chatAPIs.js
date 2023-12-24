@@ -1,7 +1,8 @@
 const userModel = require("../models/user")
-// const chatCollectionModel = require('../models/chatcollection');
 const chatModel = require("../models/Chat")
 const Doc = require("../models/document")
+
+
 
 exports.getAllChats = async (req, res) => {
   try {
