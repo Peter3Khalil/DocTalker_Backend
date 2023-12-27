@@ -1,10 +1,9 @@
 const DocumentModel = require("../models/document")
-const chatmodel = require("../models/Chat")
+const chatmodel = require("../models/chat")
 const { connectDB } = require("../config/database")
 const { convertDocToChunks } = require("../utils/extractDataFromDocs")
 const { getEmbeddings } = require("../services/huggingface")
-const Chat = require("../models/Chat")
-const User = require("../models/user")
+const Chat = require("../models/chat")
 
 exports.handler = async (req, res) => {
   // 1. check for POST call
@@ -20,7 +19,12 @@ exports.handler = async (req, res) => {
 
     // TODO : PASS THE CHAT ID
     const { id } = req.body
-    console.log(id)
+
+    // NOTE : chatId is the id of the chat that the user wants to process -- > documentId
+    if (!id) {
+      return res.status(400).json({ message: "chat id is required" })
+    }
+
     const chat = await chatmodel.findById(id)
     const myFile = await DocumentModel.findById(chat.documentId)
     const currUser = req.user
